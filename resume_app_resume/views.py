@@ -11,6 +11,7 @@ def create(request):
         my_dict = {i: pydict[i] for i in pydict.keys() if not('csrf' in i)}
         with open('resume_app_resume/vitas.json') as jf:
             json_dict = json.load(jf)
+            num = 1
             for i in json_dict.keys():
                 num = int("".join([s for s in i if s.isdigit()]))
             json_dict[f'cv{num+1}'] = my_dict
