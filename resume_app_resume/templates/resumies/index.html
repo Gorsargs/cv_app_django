@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	{% load static %}
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="{% static 'resume/css/resume1.css' %}" media="all" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css"
+		href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+</head>
+
+
+<body id="target">
+	<nav class="navbar navbar-dark bg-dark navbar-expand-md py-md-2">
+        <a class="navbar-brand" href="/">Cv Application</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNav">
+        </div>
+    </nav>
+
+	<div id="doc2" class="yui-t7">
+		<div id="inner">
+
+			<div id="hd">
+				<div class="yui-gc">
+					<div class="yui-u first">
+						{% for item in cv_for_show.fullname %}
+						<h1>{{item}}</h1>
+						{% endfor %}
+						{% for item in cv_for_show.professionsInput %}
+						<h2>{{item}}</h2>
+						{% endfor %}
+					</div>
+
+					<div class="yui-u">
+						<div class="contact-info">
+							<!-- <h3><a id="pdf" href="#">Download PDF</a></h3> -->
+							<h3>{{cv_for_show.mobilenumber.0}}</h3>
+							<h3>{{cv_for_show.mail.0}}</h3>
+							{% for item in cv_for_show.additionalinfo%}
+							<h3><a href="{{item}}">{{item}}</a></h3>
+							{%endfor%}
+						</div>
+						<!--// .contact-info -->
+					</div>
+				</div>
+				<!--// .yui-gc -->
+			</div>
+			<!--// hd -->
+
+			<div id="bd">
+				<div id="yui-main">
+					<div class="yui-b" id="yui-main2">
+
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h2>About me</h2>
+							</div>
+							<div class="yui-u">
+								{% for item in cv_for_show.textarea %}
+								<p class="enlarge">
+									{{item}}
+								</p>
+								{% endfor %}
+							</div>
+						</div>
+						<!--// .yui-gf -->
+
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h2>Skills</h2>
+							</div>
+							<div class="yui-u">
+								{% for key,value in skillset.items %}
+								<div class="talent">
+									<h2>{{key}}</h2>
+									<p>{{value}}</p>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<!--// .yui-gf -->
+
+						<div class="yui-gf">
+							<div class="yui-u first">
+								<h2>Technical</h2>
+							</div>
+							<div class="yui-u">
+								{% for item in cv_for_show.technical %}
+								<ul class="talent">
+									<li>{{item}}</li>
+								</ul>
+								{% endfor %}
+							</div>
+						</div>
+						<!--// .yui-gf-->
+
+						<div class="yui-gf">
+
+							<div class="yui-u first">
+								<h2>Experience</h2>
+							</div>
+							<!--// .yui-u -->
+
+							<div class="yui-u">
+								{% for key,value in expirience.items %}
+								<div class="job">
+									<h2>{{value.0}}</h2>
+									<h3>{{value.1}}</h3>
+									<h4>{{value.2}}</h4>
+									<p>{{value.3}}</p>
+								</div>
+								{% endfor %}
+							</div>
+							<!--// .yui-u -->
+						</div>
+						<!--// .yui-gf -->
+
+
+						<div class="yui-gf last">
+							<div class="yui-u first">
+								<h2>Education</h2>
+							</div>
+							<div class="yui-u education">
+								{% for key,value in educations.items %}
+								<div class="job education">
+									<h2>{{value.0}}</h2>
+									<h3>{{value.2}}</h3>
+									<h4>{{value.1}}</h4>
+									<h5>{{value.3}}</h3>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<!--// .yui-gf -->
+
+
+					</div>
+					<!--// .yui-b -->
+				</div>
+				<!--// yui-main -->
+			</div>
+			<!--// bd -->
+			<!--// footer -->
+		</div><!-- // inner -->
+		<div id="ft">
+		</div>
+	</div>
+	<script src="{% static 'resume/scripts/main1.js' %}"></script>
+</body>
+
+</html>

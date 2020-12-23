@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+  {% load static %}
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="{% static 'resume/css/resume1.css' %}" media="all" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"
+    href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+  
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-md py-md-2">
+    <a class="navbar-brand" href="/">Cv Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarNav">
+    </div>
+  </nav>
+  <form action="" method="POST">
+  {% csrf_token %}
+  <div id="doc2" class="yui-t7">
+    <div id="inner">
+
+      <div id="hd">
+        <div class="yui-gc">
+          <div class="yui-u first">
+            <h1 id="nameInput"><input name="fullname" type="text" placeholder=" Your name ..."></input></h1>
+            <h2 id="professionsInput"><input name=professionsInput type="text" placeholder=" Graphic Designer, .."></input></h2>
+          </div>
+
+          <div class="yui-u contact">
+            <div class="contact-info">
+              <!-- <h3><a id="pdf" href="#">Download PDF</a></h3> -->
+              <input  class= "myButton" type="button" value = "+" onclick="addlinkfield()">
+              <h3><input name="mobilenumber"  type="text" placeholder="Mobile number"></input></h3>
+              <h3><input name="mail"  type="text" placeholder="e.g johndoe@gmail.com"></input></h2>
+            </div>
+            <!--// .contact-info -->
+          </div>
+        </div>
+        <!--// .yui-gc -->
+      </div>
+      <!--// hd -->
+
+      <div id="bd">
+        <div id="yui-main">
+          <div class="yui-b">
+
+            <div class="yui-gf">
+              <div class="yui-u first">
+                <h2>About me</h2>
+              </div>
+              <div class="yui-u">
+                <p class="enlarge">
+                  <textarea name="textarea" id="" cols="60" rows="3" style="resize: none;"></textarea>
+                </p>
+              </div>
+            </div>
+            <!--// .yui-gf -->
+
+            <div class="yui-gf">
+              <div class="Buttons">
+              </div>
+              <div class="yui-u first">
+                <h2>Skills</h2>
+                <input type="button" class="myButton" value="+" onclick="addSkill()"></input>
+
+              </div>
+              <div class="yui-u skills">
+                <div class="talent">
+                  <input type="button" class="myButton" value="x" onclick="remove('yui-u skills',this)"></input>
+                  <input name="skillname" class="skillname" type="text" placeholder="Your Skill Name"></input>
+                  <textarea name="skilltext" class="skilltext" cols="24" rows="10"
+                    placeholder="Skill Description"></textarea>
+                </div>
+                
+              </div>
+            </div>
+            <!--// .yui-gf -->
+
+            <div class="yui-gf">
+              <div class="yui-u first">
+                <h2>Technical</h2>
+                <input type="button" class="myButton" value="+" onclick="addTechnical()"></input>
+              </div>
+              <div class="yui-u Technical">
+                <div class="talent">
+                    <input type="button" class="myButton" value="x" id="minusbutton" onclick="remove('yui-u Technical',this)"></input>
+                    <input name="technical"  type="text" placeholder = "skill e.g Css">
+                </div>
+              </div>
+            </div>
+            <!--// .yui-gf-->
+
+            <div class="yui-gf">
+
+              <div class="yui-u first">
+                <h2>Experience</h2>
+                <input  class="myButton" type="button" value="+" onclick="addJob()">
+            
+              </div>
+              <!--// .yui-u -->
+              <div class="yui-u Experience">
+                <div class="job">
+                  <h2><input name="companyname" type="text" placeholder="Company"></h2>
+                  <h3><input name="position" type="text" placeholder="Position"></h3>
+                  <h4><input name="data-field" type="text" placeholder="e.g Jul 2020 - Feb 2022"></h4>
+                  <textarea  name="aboutwork" cols="60" rows="4" style="resize: none;" placeholder="About Work"></textarea>
+                  <input class="myMinusButton" type="button" value="x" onclick="remove('yui-u Experience',this)">
+                </div>
+              </div>
+              <!--// .yui-u -->
+            </div>
+            <!--// .yui-gf -->
+
+
+            <div class="yui-gf Education last">
+              <div class="yui-u first">
+                <h2>Education</h2>
+                <input type="button" class="myButton" value="+" onclick="addEducation()">
+              </div>
+              <div class="yui-u education">
+                <div class="job education">
+                    <h2><input name="education" type="text" name="Educationplace" placeholder="Education place"></h2>
+                    <h4><input name="education-data" type="text" placeholder="e.g Jul 2020 - Feb 2022"></h4>
+                    <h3><input name="educationfield" type="text" placeholder="Education field"></h3>
+                    <h2><input name="gpa" type="text" placeholder="1-4 gpa"></h2>
+                    <input class="myMinusButton" type="button" value="x" onclick="remove('yui-u education',this)">
+                </div>
+              </div>
+            </div>
+            <!--// .yui-gf -->
+
+
+          </div>
+          <!--// .yui-b -->
+        </div>
+        <!--// yui-main -->
+      </div>
+      <!--// bd -->
+      <input class="btn btn-dark" type="submit" value="Create CV"></input>
+      </form>
+      <!-- <button type="button" onclick="fieldnamevalidator()"></button> -->
+      <div id="ft">
+      </div>
+      <!--// footer -->
+
+    </div><!-- // inner -->
+
+
+  </div>
+  <!--// doc -->
+  <script src="{% static 'resume/scripts/main1.js' %}"></script>
+
+</body>
+
+</html>

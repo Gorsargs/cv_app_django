@@ -1,0 +1,16 @@
+.form-control {
+    display: none;
+    width: 100px;
+}
+
+#choice1,#choice2{
+    display: block;
+}
+
+.mybox{
+    position: relative;
+    height:10px;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+}
