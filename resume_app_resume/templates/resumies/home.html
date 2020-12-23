@@ -35,7 +35,7 @@
                                 href="{% url 'show' key %}">
                                 {% for k,v in value.items %}
                                 {% for item in v %}
-                                <h2 style="text-transform: uppercase; bottom: 8px;position: relative;">{{item}}</h2>
+                                <h3 style="text-transform: uppercase; bottom: 8px;position: relative;">{{item}}</h3>
                                 {% endfor %}
                                 {% endfor %}
                             </a>
@@ -47,7 +47,7 @@
                                 style="height: 50px fixed;">Delete</a>
                         </div>
                         <div>
-                           <a type="button" class="btn btn-dark ml-2 mt-3" href="{% url 'pdf' key %}"
+                           <a type="button" class="btn btn-dark ml-2 mt-3" href="{% url 'show1' key %}"
                                 style="height: 50px fixed;">PDF</a>
                         </div>
                     </div>

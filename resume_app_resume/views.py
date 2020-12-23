@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 import json
 from django.http import HttpResponse
-import pdfkit
 # Create your views here.
 
 
 def create(request):
+    print(request.POST)
     if request.method == 'POST':
         pydict = dict(request.POST)
         my_dict = {i: pydict[i] for i in pydict.keys() if not('csrf' in i)}
@@ -16,6 +16,7 @@ def create(request):
                 num = int("".join([s for s in i if s.isdigit()]))
             json_dict[f'cv{num+1}'] = my_dict
         write_json(json_dict)
+        return redirect("/")
     context = {}
     return render(request, 'resumies/create_cv.html', context)
 
@@ -103,26 +104,26 @@ def show_cv_for_pdf(request, pk):
 
 
 
-def generate_PDF(request,pk):
-    options = {
-         'dpi': 400,
-         'page-size': 'Letter',
-         'margin-top': '0.25in',
-         'margin-right': '0.0in',
-         'margin-bottom': '0.25in',
-         'margin-left': '0.0in',
-         'encoding': "UTF-8",
-         'custom-header' : [
-            ('Accept-Encoding', 'gzip')
-         ],
-         'no-outline': None,
-    }
-    pdfkit.from_url(f'https://cvapplicationam.herokuapp.com/show1/{pk}','resume_app_resume/templates/pdf/cv.pdf',options=options)
-    file = open('resume_app_resume/templates/pdf/cv.pdf', "r+b")
-    file.seek(0)
-    pdf = file.read()
-    file.close()
-    return HttpResponse(pdf, 'application/pdf')
+# def generate_PDF(request,pk):
+#     options = {
+#          'dpi': 400,
+#          'page-size': 'Letter',
+#          'margin-top': '0.25in',
+#          'margin-right': '0.0in',
+#          'margin-bottom': '0.25in',
+#          'margin-left': '0.0in',
+#          'encoding': "UTF-8",
+#          'custom-header' : [
+#             ('Accept-Encoding', 'gzip')
+#          ],
+#          'no-outline': None,
+#     }
+#     pdfkit.from_url(f'https://127.0.0.1:8000/show1/{pk}','resume_app_resume/templates/pdf/cv.pdf',options=options,)
+#     file = open('resume_app_resume/templates/pdf/cv.pdf', "r+b")
+#     file.seek(0)
+#     pdf = file.read()
+#     file.close()
+#     return HttpResponse(pdf, 'application/pdf')
 # def pdfmaker(request):
 #     print(request.path)
 #     return render(request,'pdf/cv.pdf')

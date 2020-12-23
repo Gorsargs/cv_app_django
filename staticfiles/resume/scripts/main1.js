@@ -80,4 +80,13 @@ function remove(classname,input) {
   document.getElementsByClassName(classname)[0].removeChild(input.parentNode);
 }
 
+function submitOnOf(){
+  var name = document.getElementById('nameInput2');
+  var button  = document.getElementById('submitButton');
+  if(name.value.length > 0){
+    button.disabled = false;
+  }else{
+    button.disabled = true;
+  }
+}
 

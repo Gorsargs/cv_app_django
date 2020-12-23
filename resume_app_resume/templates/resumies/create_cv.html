@@ -21,7 +21,7 @@
       <div id="hd">
         <div class="yui-gc">
           <div class="yui-u first">
-            <h1 id="nameInput"><input name="fullname" type="text" placeholder=" Your name ..."></input></h1>
+            <h1 id="nameInput"><input id="nameInput2" name="fullname" type="text" placeholder=" Your name ..." onchange="submitOnOf()"></input></h1>
             <h2 id="professionsInput"><input name=professionsInput type="text" placeholder=" Graphic Designer, .."></input></h2>
           </div>
 
@@ -135,7 +135,7 @@
         <!--// yui-main -->
       </div>
       <!--// bd -->
-      <input type="submit" value="Create CV"></input>
+        <input id="submitButton" type="submit" value="Create CV" name="saveCV" disabled = "true">
       </form>
       <!-- <button type="button" onclick="fieldnamevalidator()"></button> -->
       <div id="ft">
@@ -148,7 +148,6 @@
   </div>
   <!--// doc -->
   <script src="{% static 'resume/scripts/main1.js' %}"></script>
-
 </body>
 
 </html>

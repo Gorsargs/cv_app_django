@@ -1,1 +1,55 @@
-{}
+{
+    "cv2": {
+        "fullname": [
+            "asdasd"
+        ],
+        "professionsInput": [
+            ""
+        ],
+        "mobilenumber": [
+            ""
+        ],
+        "mail": [
+            ""
+        ],
+        "textarea": [
+            ""
+        ],
+        "skillname": [
+            ""
+        ],
+        "skilltext": [
+            ""
+        ],
+        "technical": [
+            ""
+        ],
+        "companyname": [
+            ""
+        ],
+        "position": [
+            ""
+        ],
+        "data-field": [
+            ""
+        ],
+        "aboutwork": [
+            ""
+        ],
+        "education": [
+            ""
+        ],
+        "education-data": [
+            ""
+        ],
+        "educationfield": [
+            ""
+        ],
+        "gpa": [
+            ""
+        ],
+        "saveCV": [
+            "Create CV"
+        ]
+    }
+}

@@ -14,3 +14,6 @@
     border: none;
     border-radius: 10px;
 }
+.mt-3, .my-3 {
+    margin-top: 0.8rem!important;
+}
